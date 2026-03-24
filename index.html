@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Daily Duty Handbook</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --navy: #1a2744;
+    --gold: #e8a020;
+    --gold-light: #fdf3e0;
+    --teal: #1d7a6e;
+    --teal-light: #e6f4f2;
+    --red: #c0392b;
+    --red-light: #fdecea;
+    --slate: #4a5568;
+    --light: #f8f9fc;
+    --white: #ffffff;
+    --border: #e2e8f0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--navy);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy);
+    color: white;
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: rgba(232,160,32,0.12);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(29,122,110,0.15);
+  }
+  .cover-emoji { font-size: 3rem; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .cover p {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95rem;
+    max-width: 420px;
+    margin: 0 auto 28px;
+  }
+  .tag-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .tag {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  /* ── NAV ── */
+  .nav-strip {
+    background: white;
+    border-bottom: 2px solid var(--border);
+    padding: 0 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .nav-strip a {
+    display: inline-block;
+    padding: 14px 14px;
+    color: var(--slate);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-strip a:hover { color: var(--navy); border-bottom-color: var(--gold); }
+
+  /* ── LAYOUT ── */
+  .wrapper { max-width: 780px; margin: 0 auto; padding: 30px 18px 60px; }
+
+  /* ── SECTION CARD ── */
+  .section-card {
+    background: white;
+    border-radius: 14px;
+    margin-bottom: 28px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 24px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--light);
+  }
+  .section-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .section-header-text h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .section-header-text .role {
+    display: inline-block;
+    background: var(--navy);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .section-header-text p {
+    color: var(--slate);
+    font-size: 0.85rem;
+  }
+
+  /* TIME BADGE */
+  .time-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gold-light);
+    border: 1px solid #f0c96a;
+    color: #7a4f0d;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin: 14px 24px 0;
+  }
+  .time-badge .dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; }
+
+  /* SECTION & PRIMARY TABS */
+  .tabs { display: flex; gap: 0; padding: 16px 24px 0; border-bottom: 1px solid var(--border); }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--slate);
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 6px 6px 0 0;
+  }
+  .tab-btn.active { color: var(--navy); border-bottom-color: var(--navy); }
+  .tab-panel { display: none; padding: 20px 24px; }
+  .tab-panel.active { display: block; }
+
+  /* DO / DON'T GRID */
+  .dd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:560px) { .dd-grid { grid-template-columns: 1fr; } }
+  .dd-box { border-radius: 10px; padding: 16px; }
+  .dd-box.do { background: var(--teal-light); border: 1px solid #b2dcd8; }
+  .dd-box.dont { background: var(--red-light); border: 1px solid #f2b8b3; }
+  .dd-label {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.78rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .dd-label.do { color: var(--teal); }
+  .dd-label.dont { color: var(--red); }
+  .dd-box ul { list-style: none; padding: 0; }
+  .dd-box li {
+    padding: 5px 0 5px 18px;
+    font-size: 0.87rem;
+    color: #2d3748;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .dd-box li:last-child { border-bottom: none; }
+  .dd-box.do li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+  .dd-box.dont li::before { content: '✗'; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+
+  /* SIMPLE LIST */
+  .simple-list { list-style: none; padding: 0; }
+  .simple-list li {
+    padding: 7px 0 7px 20px;
+    position: relative;
+    font-size: 0.9rem;
+    color: #2d3748;
+    border-bottom: 1px solid var(--border);
+  }
+  .simple-list li:last-child { border-bottom: none; }
+  .simple-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+  /* PERIOD TABLE */
+  .period-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .period-table th {
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .period-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); }
+  .period-table tr:nth-child(even) td { background: var(--light); }
+  .period-table tr:hover td { background: var(--gold-light); }
+  .period-num {
+    display: inline-block;
+    background: var(--navy);
+    color: white;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  /* HOMEWORK CYCLE */
+  .cycle { display: flex; gap: 0; margin-top: 4px; overflow-x: auto; }
+  .cycle-step {
+    flex: 1;
+    min-width: 110px;
+    background: white;
+    border: 1px solid var(--border);
+    border-right: none;
+    padding: 12px 14px;
+    position: relative;
+  }
+  .cycle-step:last-child { border-right: 1px solid var(--border); border-radius: 0 8px 8px 0; }
+  .cycle-step:first-child { border-radius: 8px 0 0 8px; }
+  .cycle-step .day { font-weight: 700; font-size: 0.78rem; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
+  .cycle-step .action { font-size: 0.82rem; color: var(--navy); }
+  .cycle-arrow {
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--slate);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .cycle-wrap { display: flex; align-items: stretch; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+  .cycle-wrap .cycle-step { border: none; border-right: 1px solid var(--border); }
+  .cycle-wrap .cycle-step:last-child { border-right: none; }
+
+  /* SECTION DIVIDER */
+  .divider-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--slate);
+    margin: 32px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .divider-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ASSEMBLY STEPS */
+  .steps { counter-reset: step; padding: 0; list-style: none; }
+  .steps li {
+    counter-increment: step;
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .steps li:last-child { border-bottom: none; }
+  .steps li::before {
+    content: counter(step);
+    min-width: 26px; height: 26px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '☐'; font-size: 1rem; color: var(--teal); flex-shrink: 0; }
+
+  /* INSPECTION GRID */
+  .inspect-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-top: 4px; }
+  .inspect-item {
+    background: var(--light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .inspect-item .icon { font-size: 1.4rem; display: block; margin-bottom: 5px; }
+
+  /* CLOSING STRUCTURE */
+  .close-phases { display: flex; flex-direction: column; gap: 10px; }
+  .close-phase {
+    display: flex; align-items: stretch; gap: 0;
+    border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .close-phase-time {
+    background: var(--navy);
+    color: white;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    padding: 14px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+    min-width: 42px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .close-phase-body { padding: 14px 18px; flex: 1; }
+  .close-phase-body h4 { font-weight: 700; color: var(--navy); margin-bottom: 6px; font-size: 0.95rem; }
+  .close-phase-body p { color: var(--slate); font-size: 0.85rem; }
+
+  /* ALERT BOX */
+  .alert {
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.87rem;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 14px 0 4px;
+  }
+  .alert.warning { background: #fff8e1; border: 1px solid #f6d860; color: #7a4f00; }
+  .alert.info { background: var(--teal-light); border: 1px solid #b2dcd8; color: #135450; }
+  .alert-icon { flex-shrink: 0; font-size: 1rem; }
+
+  /* QUICK REF STRIP */
+  .quick-ref {
+    background: var(--navy);
+    color: white;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 28px;
+  }
+  .quick-ref h3 { font-family: 'DM Serif Display', serif; font-size: 1.1rem; margin-bottom: 16px; color: var(--gold); }
+  .qr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; }
+  .qr-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+  }
+  .qr-item .qr-time { color: var(--gold); font-weight: 700; font-size: 0.78rem; display: block; margin-bottom: 3px; }
+  .qr-item .qr-label { color: rgba(255,255,255,0.85); }
+
+  .section-body { padding: 20px 24px; }
+
+  .note-box {
+    background: var(--gold-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 0.87rem;
+    color: #5a3c00;
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-emoji">📋</div>
+  <h1>Teacher Daily Duty Handbook</h1>
+  <p>A clear, practical guide to responsibilities across every part of the school day — for all staff.</p>
+  <div class="tag-row">
+    <span class="tag">Grades 1–10</span>
+    <span class="tag">All Teachers</span>
+    <span class="tag">Daily Reference</span>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<nav class="nav-strip">
+  <a href="#quickref">⚡ Quick Ref</a>
+  <a href="#arrival">🕐 Arrival</a>
+  <a href="#gate">🚪 Gate Duty</a>
+  <a href="#assembly">🎙 Assembly</a>
+  <a href="#zero">0️⃣ Zero Period</a>
+  <a href="#periods">📚 Periods</a>
+  <a href="#recess">☀️ Recess</a>
+  <a href="#closing">✅ Closing</a>
+  <a href="#homework">📝 Homework</a>
+  <a href="#dispersal">🚶 Dispersal</a>
+</nav>
+
+<div class="wrapper">
+
+  <!-- QUICK REFERENCE STRIP -->
+  <div id="quickref" class="quick-ref">
+    <h3>⚡ Day at a Glance — Secondary (Grades 5–10)</h3>
+    <div class="qr-grid">
+      <div class="qr-item"><span class="qr-time">7:50 – 8:00 am</span><span class="qr-label">Teacher Arrival</span></div>
+      <div class="qr-item"><span class="qr-time">8:00 – 8:10 am</span><span class="qr-label">Student Arrival / Gate</span></div>
+      <div class="qr-item"><span class="qr-time">8:10 – 8:25 am</span><span class="qr-label">Assembly</span></div>
+      <div class="qr-item"><span class="qr-time">8:25 – 8:35 am</span><span class="qr-label">Zero Period</span></div>
+      <div class="qr-item"><span class="qr-time">8:35 – 9:25 am</span><span class="qr-label">Period 1</span></div>
+      <div class="qr-item"><span class="qr-time">9:25 – 10:15 am</span><span class="qr-label">Period 2</span></div>
+      <div class="qr-item"><span class="qr-time">10:15 – 10:40 am</span><span class="qr-label">Recess 1</span></div>
+      <div class="qr-item"><span class="qr-time">10:40 – 11:30 am</span><span class="qr-label">Period 3</span></div>
+      <div class="qr-item"><span class="qr-time">11:30 – 12:20 pm</span><span class="qr-label">Period 4</span></div>
+      <div class="qr-item"><span class="qr-time">12:20 – 12:40 pm</span><span class="qr-label">Recess 2</span></div>
+      <div class="qr-item"><span class="qr-time">12:40 – 1:30 pm</span><span class="qr-label">Period 5</span></div>
+      <div class="qr-item"><span class="qr-time">1:30 – 2:20 pm</span><span class="qr-label">Period 6</span></div>
+      <div class="qr-item"><span class="qr-time">2:20 – 2:50 pm</span><span class="qr-label">Closing Assembly</span></div>
+    </div>
+    <div style="margin-top:16px;">
+    <h3 style="margin-bottom:12px;">⚡ Day at a Glance — Primary (Grades 1–4)</h3>
+    <div class="qr-grid">
+      <div class="qr-item"><span class="qr-time">8:45 – 8:55 am</span><span class="qr-label">Student Arrival</span></div>
+      <div class="qr-item"><span class="qr-time">8:55 – 9:10 am</span><span class="qr-label">Assembly</span></div>
+      <div class="qr-item"><span class="qr-time">9:10 – 9:25 am</span><span class="qr-label">Zero Period</span></div>
+      <div class="qr-item"><span class="qr-time">9:25 – 10:15 am</span><span class="qr-label">Period 1</span></div>
+      <div class="qr-item"><span class="qr-time">10:15 – 10:40 am</span><span class="qr-label">Recess 1</span></div>
+      <div class="qr-item"><span class="qr-time">10:40 – 11:30 am</span><span class="qr-label">Period 2</span></div>
+      <div class="qr-item"><span class="qr-time">11:30 – 12:20 pm</span><span class="qr-label">Period 3</span></div>
+      <div class="qr-item"><span class="qr-time">12:20 – 12:40 pm</span><span class="qr-label">Recess 2</span></div>
+      <div class="qr-item"><span class="qr-time">12:40 – 1:30 pm</span><span class="qr-label">Period 4</span></div>
+      <div class="qr-item"><span class="qr-time">1:30 – 2:20 pm</span><span class="qr-label">Period 5</span></div>
+      <div class="qr-item"><span class="qr-time">2:20 – 2:50 pm</span><span class="qr-label">Closing Assembly</span></div>
+    </div>
+    </div>
+  </div>
+
+  <!-- 1. TEACHER ARRIVAL -->
+  <div id="arrival" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🕐</div>
+      <div class="section-header-text">
+        <span class="role">All Teachers</span>
+        <h2>1. Teacher Arrival & Reporting</h2>
+        <p>The school day begins here. Being on time sets the tone for students and colleagues.</p>
+      </div>
+    </div>
+    <div class="time-badge"><span class="dot"></span> 7:50 am – 8:00 am &nbsp;·&nbsp; Reporting after 8:00 am is considered <strong>late</strong></div>
+    <div class="section-body">
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Arrive before 8:00 am and input attendance</li>
+            <li>Prepare teaching materials and the classroom</li>
+            <li>Ensure the classroom is clean and properly arranged</li>
+            <li>Maintain a professional, welcoming attitude</li>
+            <li>Be ready to guide students as they enter campus</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Arrive after the reporting window</li>
+            <li>Begin the day unprepared or rushed</li>
+            <li>Use mobile phones during arrival time</li>
+            <li>Leave students unattended in classrooms</li>
+            <li>Ignore early discipline or safety concerns</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. GATE DUTY -->
+  <div id="gate" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🚪</div>
+      <div class="section-header-text">
+        <span class="role">Gate Incharge</span>
+        <h2>2. Gate Duty — Entry & Exit</h2>
+        <p>Ensures safe, orderly movement of students during arrival and dispersal.</p>
+      </div>
+    </div>
+    <div class="time-badge"><span class="dot"></span> 8:00 am – 8:10 am (Entry) &nbsp;·&nbsp; Dispersal time as directed</div>
+    <div class="section-body">
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Reach the gate on time</li>
+            <li>Ensure students move safely and calmly — no crowding</li>
+            <li>Greet parents and students warmly; model respectful greetings</li>
+            <li>Randomly check bags in a friendly manner</li>
+            <li>Report unusual or unsafe situations to HOD immediately</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Leave the gate unattended</li>
+            <li>Allow pushing, running, or disorderly behaviour</li>
+            <li>Engage in long personal conversations</li>
+            <li>Ignore students who require assistance</li>
+            <li>Use mobile phones while supervising</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. ASSEMBLY -->
+  <div id="assembly" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🎙</div>
+      <div class="section-header-text">
+        <span class="role">All Teachers · Class Teacher in Charge</span>
+        <h2>3. Morning Assembly</h2>
+        <p>Builds discipline, public speaking, and a positive start to the day.</p>
+      </div>
+    </div>
+    <div class="time-badge"><span class="dot"></span> Secondary: 8:10 – 8:25 am &nbsp;·&nbsp; Primary: 8:55 – 9:10 am</div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'asm-type')">Types</button>
+      <button class="tab-btn" onclick="switchTab(this,'asm-order')">Order of Assembly</button>
+      <button class="tab-btn" onclick="switchTab(this,'asm-dd')">Do's & Don'ts</button>
+    </div>
+
+    <div id="asm-type" class="tab-panel active">
+      <div class="dd-grid">
+        <div class="dd-box do" style="background:#f0f4ff;border-color:#c3cff7;">
+          <div class="dd-label" style="color:#3a4db5;">📅 Combined Assembly</div>
+          <ul style="list-style:none;padding:0;">
+            <li style="border:none;padding-left:0;">Held every <strong>Monday</strong> and during important school events. All classes assemble together as instructed.</li>
+          </ul>
+        </div>
+        <div class="dd-box do" style="background:#f5f0ff;border-color:#d0bef7;">
+          <div class="dd-label" style="color:#5b3da0;">📅 Class Assembly</div>
+          <ul style="list-style:none;padding:0;">
+            <li style="border:none;padding-left:0;">Held <strong>Tuesday to Friday</strong>, within the classroom. A different class monitor is assigned each day.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert info" style="margin-top:14px;">
+        <span class="alert-icon">💡</span>
+        Rotate student monitors regularly. Every student should get opportunities to lead over time.
+      </div>
+    </div>
+
+    <div id="asm-order" class="tab-panel">
+      <p style="font-size:0.85rem;color:var(--slate);margin-bottom:14px;">The monitor leads the class through this sequence from the front:</p>
+      <ol class="steps">
+        <li>Students stand properly in their places</li>
+        <li>Monitor gives commands: <strong>"Attention"</strong> and <strong>"Stand at Ease"</strong></li>
+        <li><strong>Prayer</strong> is conducted</li>
+        <li><strong>Pledge</strong> is recited</li>
+        <li><strong>Affirmations</strong> — read by monitor, repeated by class</li>
+        <li><strong>News Reading</strong> — a student shares current news</li>
+        <li><strong>Proverb of the Day</strong> — a student reads and briefly explains a proverb</li>
+      </ol>
+    </div>
+
+    <div id="asm-dd" class="tab-panel">
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Ensure students stand in orderly, disciplined lines</li>
+            <li>Guide the student monitor conducting assembly</li>
+            <li>Encourage confident and clear student speaking</li>
+            <li>Maintain silence and attentiveness throughout</li>
+            <li>Ensure assembly proceeds smoothly and respectfully</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Talk with other teachers during assembly</li>
+            <li>Allow students to move unnecessarily</li>
+            <li>Ignore students who are disengaged or disruptive</li>
+            <li>Allow the same students to participate every day</li>
+            <li>Use phones or appear distracted</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ZERO PERIOD -->
+  <div id="zero" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">0️⃣</div>
+      <div class="section-header-text">
+        <span class="role">Class Teacher</span>
+        <h2>4. Zero Period</h2>
+        <p>Inspection, attendance, and readiness — getting the class set for the day ahead.</p>
+      </div>
+    </div>
+    <div class="time-badge"><span class="dot"></span> Secondary: 8:25 – 8:35 am &nbsp;·&nbsp; Primary: 9:10 – 9:25 am</div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'zp-secondary')">Secondary (Gr. 5–10)</button>
+      <button class="tab-btn" onclick="switchTab(this,'zp-primary')">Primary (Gr. 1–4)</button>
+      <button class="tab-btn" onclick="switchTab(this,'zp-inspect')">Inspection Areas</button>
+    </div>
+
+    <div id="zp-secondary" class="tab-panel active">
+      <ul class="checklist">
+        <li>Take attendance carefully</li>
+        <li>Offer a brief greeting and words of encouragement</li>
+        <li>Check uniform and hygiene</li>
+        <li>Conduct overall class inspection</li>
+        <li>Ensure classroom readiness: board clean, lights on, ventilation open</li>
+      </ul>
+    </div>
+    <div id="zp-primary" class="tab-panel">
+      <ul class="checklist">
+        <li>Take attendance and post it on WhatsApp</li>
+        <li>Check uniform and hygiene</li>
+        <li>Allow emotional settling and provide morning motivation</li>
+        <li>Prepare class for subject teachers</li>
+      </ul>
+    </div>
+    <div id="zp-inspect" class="tab-panel">
+      <div class="inspect-grid">
+        <div class="inspect-item"><span class="icon">📔</span>Student Diaries</div>
+        <div class="inspect-item"><span class="icon">👕</span>Uniform</div>
+        <div class="inspect-item"><span class="icon">💇</span>Hairstyle</div>
+        <div class="inspect-item"><span class="icon">💅</span>Fingernails</div>
+        <div class="inspect-item"><span class="icon">👟</span>Shoes</div>
+      </div>
+      <div class="alert warning" style="margin-top:14px;">
+        <span class="alert-icon">⚠️</span>
+        Students who do not meet required standards may receive a <strong>remark in their diary</strong>. Conduct the inspection firmly but respectfully.
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. ACADEMIC PERIODS -->
+  <div id="periods" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">📚</div>
+      <div class="section-header-text">
+        <span class="role">Subject Teacher</span>
+        <h2>5. Academic Periods</h2>
+        <p>The core of the school day. Start and end on time. Every minute counts.</p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'per-sec')">Secondary Timetable</button>
+      <button class="tab-btn" onclick="switchTab(this,'per-pri')">Primary Timetable</button>
+      <button class="tab-btn" onclick="switchTab(this,'per-dd')">Do's & Don'ts</button>
+    </div>
+
+    <div id="per-sec" class="tab-panel active">
+      <table class="period-table">
+        <thead><tr><th>Period</th><th>Time</th><th>Duration</th></tr></thead>
+        <tbody>
+          <tr><td><span class="period-num">1</span></td><td>8:35 am – 9:25 am</td><td>50 min</td></tr>
+          <tr><td><span class="period-num">2</span></td><td>9:25 am – 10:15 am</td><td>50 min</td></tr>
+          <tr><td colspan="3" style="background:#fdf3e0;font-size:0.82rem;color:#7a4f0d;font-weight:600;padding:8px 14px;">☀️ Recess 1 — 10:15 am – 10:40 am</td></tr>
+          <tr><td><span class="period-num">3</span></td><td>10:40 am – 11:30 am</td><td>50 min</td></tr>
+          <tr><td><span class="period-num">4</span></td><td>11:30 am – 12:20 pm</td><td>50 min</td></tr>
+          <tr><td colspan="3" style="background:#fdf3e0;font-size:0.82rem;color:#7a4f0d;font-weight:600;padding:8px 14px;">☀️ Recess 2 — 12:20 pm – 12:40 pm</td></tr>
+          <tr><td><span class="period-num">5</span></td><td>12:40 pm – 1:30 pm</td><td>50 min</td></tr>
+          <tr><td><span class="period-num">6</span></td><td>1:30 pm – 2:20 pm</td><td>50 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="per-pri" class="tab-panel">
+      <table class="period-table">
+        <thead><tr><th>Period</th><th>Time</th><th>Duration</th></tr></thead>
+        <tbody>
+          <tr><td><span class="period-num">1</span></td><td>9:25 am – 10:15 am</td><td>50 min</td></tr>
+          <tr><td colspan="3" style="background:#fdf3e0;font-size:0.82rem;color:#7a4f0d;font-weight:600;padding:8px 14px;">☀️ Recess 1 — 10:15 am – 10:40 am</td></tr>
+          <tr><td><span class="period-num">2</span></td><td>10:40 am – 11:30 am</td><td>50 min</td></tr>
+          <tr><td><span class="period-num">3</span></td><td>11:30 am – 12:20 pm</td><td>50 min</td></tr>
+          <tr><td colspan="3" style="background:#fdf3e0;font-size:0.82rem;color:#7a4f0d;font-weight:600;padding:8px 14px;">☀️ Recess 2 — 12:20 pm – 12:40 pm</td></tr>
+          <tr><td><span class="period-num">4</span></td><td>12:40 pm – 1:30 pm</td><td>50 min</td></tr>
+          <tr><td><span class="period-num">5</span></td><td>1:30 pm – 2:20 pm</td><td>50 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="per-dd" class="tab-panel">
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Start and end classes on time</li>
+            <li>Clearly state lesson objectives at the start</li>
+            <li>Encourage active student participation</li>
+            <li>Monitor student understanding throughout</li>
+            <li>Maintain discipline and engagement</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Waste teaching time</li>
+            <li>Ignore struggling students</li>
+            <li>Allow constant disturbances</li>
+            <li>Leave the classroom unattended</li>
+            <li>End classes abruptly without closure</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. RECESS -->
+  <div id="recess" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">☀️</div>
+      <div class="section-header-text">
+        <span class="role">Recess Incharge (2 per section)</span>
+        <h2>6. Recess Supervision</h2>
+        <p>Two inspectors for Grades 5–10 and two for Grades 1–4 during each recess.</p>
+      </div>
+    </div>
+    <div class="time-badge"><span class="dot"></span> Recess 1: 10:15 – 10:40 am &nbsp;·&nbsp; Recess 2: 12:20 – 12:40 pm</div>
+    <div class="section-body">
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Supervise language discipline — English only</li>
+            <li>Prevent shouting, fighting, or unsafe play</li>
+            <li>Ensure students do not litter; make them pick up litter around them</li>
+            <li>Walk around and monitor multiple areas</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Leave students unsupervised</li>
+            <li>Allow rough or dangerous play</li>
+            <li>Ignore bullying or conflicts</li>
+            <li>Spend the entire break on mobile phones</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CLOSING ASSEMBLY -->
+  <div id="closing" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">✅</div>
+      <div class="section-header-text">
+        <span class="role">Class Teacher</span>
+        <h2>7. Closing Class Assembly</h2>
+        <p>End the day with clear homework, a clean classroom, and a calm, orderly exit.</p>
+      </div>
+    </div>
+    <div class="time-badge"><span class="dot"></span> 2:20 pm – 2:50 pm (30 minutes)</div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'cl-struct')">Structure</button>
+      <button class="tab-btn" onclick="switchTab(this,'cl-clean')">Classroom Care</button>
+      <button class="tab-btn" onclick="switchTab(this,'cl-dd')">Do's & Don'ts</button>
+    </div>
+
+    <div id="cl-struct" class="tab-panel active">
+      <div class="close-phases">
+        <div class="close-phase">
+          <div class="close-phase-time">2:20–2:30</div>
+          <div class="close-phase-body">
+            <h4>📝 Homework (10 min)</h4>
+            <p>Write homework clearly on the board. Students copy into homework notebook. Explain the task and how to complete it. Confirm all students have copied correctly.</p>
+            <div class="note-box" style="margin-top:10px;">Homework is assigned on <strong>Monday, Wednesday, and Friday only</strong>.</div>
+          </div>
+        </div>
+        <div class="close-phase">
+          <div class="close-phase-time">2:30–2:40</div>
+          <div class="close-phase-body">
+            <h4>🧹 Cleaning & Organisation (10 min)</h4>
+            <p>Assigned cleaning teams sweep the floor, dust surfaces, clean the board, arrange furniture, and clean windows. Goal: a dust-free, organized classroom for tomorrow.</p>
+          </div>
+        </div>
+        <div class="close-phase">
+          <div class="close-phase-time">2:40–2:50</div>
+          <div class="close-phase-body">
+            <h4>🙏 Prayer, Pack-Up & Exit (10 min)</h4>
+            <p>Closing prayer → calm bag packing → verify all belongings → orderly, supervised exit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="cl-clean" class="tab-panel">
+      <p style="font-size:0.85rem;color:var(--slate);margin-bottom:14px;">Before leaving, ensure the classroom meets all of the following:</p>
+      <ul class="checklist">
+        <li>Desks and chairs properly arranged</li>
+        <li>Whiteboard cleaned</li>
+        <li>Curtains opened</li>
+        <li>Classroom swept and dusted</li>
+        <li>Assigned students switch off fans and lights</li>
+      </ul>
+    </div>
+
+    <div id="cl-dd" class="tab-panel">
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Reflect briefly on the day with students</li>
+            <li>Share reminders and important notices</li>
+            <li>Ensure students pack belongings properly</li>
+            <li>Leave the classroom clean and orderly</li>
+            <li>Dismiss students calmly</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Rush the closing process</li>
+            <li>Ignore classroom cleanliness</li>
+            <li>Allow chaotic packing or movement</li>
+            <li>Leave without preparing the room</li>
+            <li>Dismiss students in an unorganized way</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. HOMEWORK -->
+  <div id="homework" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <div class="section-header-text">
+        <span class="role">Class Teacher — Grades 1–10</span>
+        <h2>8. Homework Guidelines</h2>
+        <p>Consistent, fair, and well-tracked homework builds strong study habits.</p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(this,'hw-cycle')">Weekly Cycles</button>
+      <button class="tab-btn" onclick="switchTab(this,'hw-rules')">Notebook Rules</button>
+      <button class="tab-btn" onclick="switchTab(this,'hw-record')">Record Keeping</button>
+    </div>
+
+    <div id="hw-cycle" class="tab-panel active">
+      <p style="font-size:0.85rem;color:var(--slate);margin-bottom:16px;">Homework is assigned <strong>three times a week: Monday, Wednesday, Friday</strong>.</p>
+
+      <div class="divider-label">Monday Cycle</div>
+      <div class="cycle-wrap" style="border-radius:8px;">
+        <div class="cycle-step"><div class="day">Monday</div><div class="action">Homework assigned during Closing Assembly</div></div>
+        <div class="cycle-step"><div class="day">Tuesday</div><div class="action">Notebooks collected & checked by teacher</div></div>
+        <div class="cycle-step"><div class="day">Tuesday</div><div class="action">Notebooks returned to students</div></div>
+      </div>
+
+      <div class="divider-label">Wednesday Cycle</div>
+      <div class="cycle-wrap" style="border-radius:8px;">
+        <div class="cycle-step"><div class="day">Wednesday</div><div class="action">Homework assigned during Closing Assembly</div></div>
+        <div class="cycle-step"><div class="day">Thursday</div><div class="action">Notebooks collected & checked by teacher</div></div>
+        <div class="cycle-step"><div class="day">Thu Closing</div><div class="action">Notebooks returned for Friday homework</div></div>
+      </div>
+
+      <div class="divider-label">Friday Cycle</div>
+      <div class="cycle-wrap" style="border-radius:8px;">
+        <div class="cycle-step"><div class="day">Friday</div><div class="action">Homework assigned during Closing Assembly</div></div>
+        <div class="cycle-step"><div class="day">Weekend</div><div class="action">Students complete homework at home</div></div>
+        <div class="cycle-step"><div class="day">Monday</div><div class="action">Notebooks collected & checked</div></div>
+      </div>
+    </div>
+
+    <div id="hw-rules" class="tab-panel">
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Ensure students carry homework notebooks daily</li>
+            <li>Give clear, complete instructions for every task</li>
+            <li>Check homework regularly and carefully</li>
+            <li>Encourage neat and complete work</li>
+            <li>Return notebooks promptly after checking</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Give homework without explaining it</li>
+            <li>Assign unclear or incomplete instructions</li>
+            <li>Assign excessive homework</li>
+            <li>Allow notebooks to be mixed between students</li>
+            <li>Take homework notebooks home for checking</li>
+          </ul>
+        </div>
+      </div>
+      <div class="alert warning">
+        <span class="alert-icon">⚠️</span>
+        <span>All checking must be done <strong>within school premises</strong>. If a homework notebook is lost while in a teacher's custody, <strong>the teacher will be fined</strong>. Track collected notebooks carefully.</span>
+      </div>
+    </div>
+
+    <div id="hw-record" class="tab-panel">
+      <p style="font-size:0.87rem;color:var(--slate);margin-bottom:14px;">Maintain a <strong>Homework Completion Record Sheet</strong> for your class.</p>
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Record which students completed homework each day</li>
+            <li>Mark missing or incomplete homework clearly</li>
+            <li>Update records regularly and accurately</li>
+            <li>Use records to identify patterns of missing work</li>
+            <li>Report repeated non-submission to administration</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Skip updating the record sheet</li>
+            <li>Rely on memory instead of written records</li>
+            <li>Ignore repeated missing homework</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. DISPERSAL -->
+  <div id="dispersal" class="section-card">
+    <div class="section-header">
+      <div class="section-icon">🚶</div>
+      <div class="section-header-text">
+        <span class="role">All Teachers</span>
+        <h2>9. Student Exit & Dispersal</h2>
+        <p>Staggered timings decided by the HOD to ensure calm corridors and safe pick-up.</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="dd-grid">
+        <div class="dd-box do">
+          <div class="dd-label do">✓ Do</div>
+          <ul>
+            <li>Ensure students leave in an orderly manner</li>
+            <li>Guide students toward correct exits</li>
+            <li>Monitor corridor discipline</li>
+            <li>Ensure safe pick-up where required</li>
+            <li>Report any safety concerns immediately</li>
+          </ul>
+        </div>
+        <div class="dd-box dont">
+          <div class="dd-label dont">✗ Don't</div>
+          <ul>
+            <li>Allow running or pushing during exit</li>
+            <li>Leave duty areas early</li>
+            <li>Ignore corridor discipline issues</li>
+            <li>Allow students to wander in school after dismissal</li>
+            <li>Dismiss students without supervision</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="text-align:center;color:var(--slate);font-size:0.8rem;margin-top:20px;">Teacher Daily Duty Handbook &nbsp;·&nbsp; For internal use only</p>
+</div>
+
+<script>
+function switchTab(btn, panelId) {
+  const card = btn.closest('.section-card');
+  card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  card.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  card.querySelector('#' + panelId).classList.add('active');
+}
+</script>
+</body>
+</html>
